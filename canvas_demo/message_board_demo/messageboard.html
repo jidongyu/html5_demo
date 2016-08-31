@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单的留言板案例</title>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+   <header>
+       <h1>这是一个简单的留言板</h1>
+   </header>
+   <textarea id="input" rows=10 cols=40></textarea>
+   <br>
+   <input type="button" value="提交" onclick="inputEvent('input')"/>
+   <input type="button" value="读取" onclick="readEvent('msg')"/>
+   <input type="button" value="删除" onclick="removeEvent('msg')"/>
+   <hr>
+   <p id="msg"></p>
+</body>
+</html>

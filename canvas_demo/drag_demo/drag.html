@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽案例</title>
+    <style type="text/css">
+        #dragSrc{
+            background:#e54d26;
+            width: 540px;
+            height:320px;
+        }
+        #push{
+            width:540px;
+            height:320px;
+            border:2px solid #d2d2d2;
+            box-shadow:1px 4px 8px #646464;
+        }
+    </style>
+    <script type="text/javascript">
+        //被拖拽元素的拖拽方法实现
+        function dragStart(ev){
+            //使用setData方法将要拖拽的元素存放到dataTranster中
+            ev.dataTransfer.setData("img",ev.target.id);
+        }
+        //拖拽元素被拖拽到了目标元素中执行的方法
+        function dragOver(ev){
+            //使目标元素拒绝被拖拽
+            ev.preventDefault();
+        }
+        function drop(ev)
+        {
+
+            //使用getData方法获取数据
+            var data=ev.dataTransfer.getData("img");
+            //将拖拽元素放到目标元素中
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+<body>
+<div id="push" ondrop="drop(event)" ondragover="dragOver(event)"></div>
+<br>
+<img src="html5.png" id="dragSrc" draggable="true" ondragstart="dragStart(event)" width=500 height=200/>
+</body>
+</html>
